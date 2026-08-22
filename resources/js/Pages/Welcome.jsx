@@ -1,6 +1,7 @@
 import { Head, Link } from '@inertiajs/react';
 import { useState, useEffect } from 'react';
 
+
 export default function Welcome({ auth, projects = [] }) {
     const [selectedImage, setSelectedImage] = useState(null);
 
@@ -244,17 +245,20 @@ export default function Welcome({ auth, projects = [] }) {
                     </p>
 
                     <div className="mt-10 flex flex-wrap justify-center gap-4">
-                        <a
-                            href="mailto:your.email@example.com"
-                            className="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs shadow-lg shadow-indigo-600/25 transition-all flex items-center gap-2"
-                        >
+                        <a 
+                            href="https://mail.google.com/mail/?view=cm&fs=1&to=jiandelarosa806@gmail.com"
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 font-semibold text-xs transition-all flex items-center gap-2"
+                            title="Send Email via Gmail"
+>
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                             </svg>
-                            Direct Email
+                            Direct Email↗
                         </a>
                         <a
-                            href="https://github.com"
+                            href="https://github.com/jianrossdr"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 font-semibold text-xs transition-all flex items-center gap-2"
@@ -262,7 +266,7 @@ export default function Welcome({ auth, projects = [] }) {
                             GitHub Profile ↗
                         </a>
                         <a
-                            href="https://linkedin.com"
+                            href="https://linkedin.com/in/jian-ross-dela-rosa-ab04bb351/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 font-semibold text-xs transition-all flex items-center gap-2"
