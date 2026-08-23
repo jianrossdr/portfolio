@@ -30,13 +30,7 @@ export default function Hero() {
 
                 {/* 4. Interactive Action Buttons */}
                 <div className="animate-enter-4 mt-8 flex flex-wrap items-center gap-4">
-                    <a
-                        href="#projects"
-                        className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-zinc-100 text-zinc-950 hover:bg-white text-xs font-semibold tracking-wide transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 shadow-sm"
-                    >
-                        <span>View Projects</span>
-                        <span className="transition-transform duration-300 group-hover:translate-y-0.5">↓</span>
-                    </a>
+                
                     
                     <a
                         href="https://mail.google.com/mail/?view=cm&fs=1&to=jiandelarosa806@gmail.com"
