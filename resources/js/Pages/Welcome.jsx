@@ -59,27 +59,81 @@ export default function Welcome({ auth, projects = [] }) {
     }, []);
 
     const skillCategories = [
-        {
-            title: 'Software & Systems',
-            icon: '⚡',
-            skills: ['Java', 'C# / .NET', 'Python', 'Data Structures (FIFO, HashMaps)', 'SQL CRUD Workflows']
-        },
-        {
-            title: 'Web & Frameworks',
-            icon: '🌐',
-            skills: ['PHP', 'Laravel', 'React', 'Inertia.js', 'Tailwind CSS', 'JavaScript']
-        },
-        {
-            title: '3D, UI/UX & Graphics',
-            icon: '🎨',
-            skills: ['Figma Prototyping', '3ds Max Modeling & Lighting', 'Unreal Engine 3D Logic']
-        },
-        {
-            title: 'Hardware & Systems Analysis',
-            icon: '⚙️',
-            skills: ['IoT Power Telemetry', 'Database Optimization', 'Git', 'System Workflow Mapping']
-        }
-    ];
+    {
+        title: 'Core Systems & Backend',
+        description: 'Object-oriented architectures, algorithmic workflows, and backend services.',
+        icon: (
+            <svg className="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+        ),
+        accent: 'from-indigo-500/20 via-indigo-500/5 to-transparent',
+        badgeColor: 'border-indigo-500/30 text-indigo-300 bg-indigo-950/40',
+        skills: [
+            { name: 'Java', tag: 'Core' },
+            { name: 'C# / .NET', tag: 'Desktop' },
+            { name: 'Python', tag: 'Scripts' },
+            { name: 'PHP / Laravel', tag: 'Backend' },
+            { name: 'Data Structures', tag: 'Algorithms' },
+            { name: 'RESTful APIs', tag: 'Integration' }
+        ]
+    },
+    {
+        title: 'Web & UI Engineering',
+        description: 'Modern reactive interfaces, state-driven rendering, and atomic styling.',
+        icon: (
+            <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+        ),
+        accent: 'from-cyan-500/20 via-cyan-500/5 to-transparent',
+        badgeColor: 'border-cyan-500/30 text-cyan-300 bg-cyan-950/40',
+        skills: [
+            { name: 'React', tag: 'SPA' },
+            { name: 'Inertia.js', tag: 'Routing' },
+            { name: 'Tailwind CSS', tag: 'Styling' },
+            { name: 'JavaScript (ES6+)', tag: 'Client' },
+            { name: 'HTML5 / CSS3', tag: 'Semantics' },
+            { name: 'Responsive Layouts', tag: 'Design' }
+        ]
+    },
+    {
+        title: '3D, UI/UX & Digital Prototyping',
+        description: 'Spatial visual assets, realistic lighting, and interactive prototyping.',
+        icon: (
+            <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
+            </svg>
+        ),
+        accent: 'from-purple-500/20 via-purple-500/5 to-transparent',
+        badgeColor: 'border-purple-500/30 text-purple-300 bg-purple-950/40',
+        skills: [
+            { name: 'Figma', tag: 'UI / UX' },
+            { name: '3ds Max', tag: 'Modeling' },
+            { name: 'Unreal Engine', tag: '3D Logic' },
+            { name: 'Wireframing', tag: 'Design' },
+            { name: 'Design Systems', tag: 'Tokens' }
+        ]
+    },
+    {
+        title: 'Hardware, DB & Systems Analysis',
+        description: 'Relational data management, hardware diagnostics, and workflow integrity.',
+        icon: (
+            <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+            </svg>
+        ),
+        accent: 'from-emerald-500/20 via-emerald-500/5 to-transparent',
+        badgeColor: 'border-emerald-500/30 text-emerald-300 bg-emerald-950/40',
+        skills: [
+            { name: 'MySQL', tag: 'Queries & CRUD' },
+            { name: 'Git & GitHub', tag: 'Version Control' },
+            { name: 'System Analysis', tag: 'Workflows' },
+            { name: 'Hardware Telemetry', tag: 'IoT' },
+            { name: 'PC Diagnostics', tag: 'Troubleshooting' }
+        ]
+    }
+];
 
     // Smooth scroll handler with visual feedback
     const scrollToSection = (e, id) => {
@@ -258,35 +312,72 @@ export default function Welcome({ auth, projects = [] }) {
                 </section>
 
                 {/* Technical Toolkit Grid */}
-                <section id="skills" className="max-w-6xl mx-auto px-6 py-20 border-t border-slate-800/60 scroll-mt-16">
-                    <div className="reveal-init text-center max-w-2xl mx-auto mb-14">
-                        <span className="text-xs font-semibold uppercase tracking-widest text-indigo-400">Proficiencies</span>
-                        <h2 className="text-3xl font-extrabold text-white tracking-tight mt-1">Technical Stack & Domain Skills</h2>
+<section id="skills" className="max-w-6xl mx-auto px-6 py-24 border-t border-slate-800/60 scroll-mt-16 relative">
+    {/* Section Header */}
+    <div className="reveal-init text-center max-w-2xl mx-auto mb-16">
+        <span className="text-xs font-semibold uppercase tracking-widest text-indigo-400 bg-indigo-950/60 border border-indigo-800/80 px-3.5 py-1.5 rounded-full shadow-sm">
+            Technical Arsenal
+        </span>
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-4">
+            Specialized Skills & Stack
+        </h2>
+        <p className="text-slate-400 text-xs sm:text-sm mt-3">
+            A comprehensive overview of programming languages, frameworks, system analysis tools, and design workflows I utilize.
+        </p>
+    </div>
+
+    {/* Bento Skills Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {skillCategories.map((category, index) => (
+            <div 
+                key={index} 
+                style={{ transitionDelay: `${index * 100}ms` }}
+                className="reveal-init relative group p-7 rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-slate-700/80 transition-all duration-300 overflow-hidden flex flex-col justify-between hover:shadow-2xl hover:shadow-indigo-500/5 hover:-translate-y-1"
+            >
+                {/* Background Ambient Corner Glow */}
+                <div className={`absolute -top-12 -right-12 w-48 h-48 bg-gradient-to-bl ${category.accent} blur-2xl rounded-full pointer-events-none group-hover:scale-150 transition-transform duration-700`} />
+
+                <div>
+                    {/* Header: Icon + Title */}
+                    <div className="flex items-center gap-3.5 mb-3">
+                        <div className="p-3 rounded-2xl bg-slate-950 border border-slate-800/80 shadow-inner group-hover:scale-110 group-hover:border-slate-700 transition-all duration-300">
+                            {category.icon}
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-white text-base tracking-tight group-hover:text-indigo-300 transition-colors">
+                                {category.title}
+                            </h3>
+                            <span className="text-[11px] font-mono text-slate-500">Domain Proficiency</span>
+                        </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {skillCategories.map((category, index) => (
+                    <p className="text-xs text-slate-400 leading-relaxed mb-6">
+                        {category.description}
+                    </p>
+                </div>
+
+                {/* Skill Pills */}
+                <div className="pt-4 border-t border-slate-800/80">
+                    <div className="flex flex-wrap gap-2">
+                        {category.skills.map((skill, sIdx) => (
                             <div 
-                                key={index} 
-                                style={{ transitionDelay: `${index * 120}ms` }}
-                                className="reveal-init card-glow p-6 bg-slate-900/50 rounded-2xl border border-slate-800/80 flex flex-col justify-between group"
+                                key={sIdx}
+                                className="group/pill inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950/80 border border-slate-800/80 hover:border-slate-700 transition-all duration-200"
                             >
-                                <div>
-                                    <div className="text-2xl mb-3 group-hover:scale-125 transition-transform duration-300 inline-block">{category.icon}</div>
-                                    <h4 className="font-bold text-white text-sm group-hover:text-indigo-300 transition-colors">{category.title}</h4>
-                                    <ul className="mt-4 space-y-2.5">
-                                        {category.skills.map((skill, sIdx) => (
-                                            <li key={sIdx} className="text-xs text-slate-400 flex items-center gap-2 group-hover:text-slate-300 transition-colors">
-                                                <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors"></span>
-                                                {skill}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
+                                <span className="text-xs font-medium text-slate-200 group-hover/pill:text-white">
+                                    {skill.name}
+                                </span>
+                                <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-md border ${category.badgeColor}`}>
+                                    {skill.tag}
+                                </span>
                             </div>
                         ))}
                     </div>
-                </section>
+                </div>
+            </div>
+        ))}
+    </div>
+</section>
 
                 {/* Contact Section */}
                 <section id="contact" className="reveal-init max-w-4xl mx-auto px-6 py-24 border-t border-slate-800/60 text-center scroll-mt-16">
