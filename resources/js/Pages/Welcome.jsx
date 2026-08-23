@@ -5,7 +5,13 @@ import Hero from '@/Components/Hero';
 export default function Welcome({ auth, projects = [] }) {
     const [selectedImage, setSelectedImage] = useState(null);
     const [scrollProgress, setScrollProgress] = useState(0);
+    const [copied, setCopied] = useState(false);
 
+    const handleCopyEmail = () => {
+        navigator.clipboard.writeText('jiandelarosa806@gmail.com');
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
     // Scroll reading progress listener
     useEffect(() => {
         const handleScroll = () => {
@@ -70,7 +76,7 @@ export default function Welcome({ auth, projects = [] }) {
             <Head title="Jian Ross Dela Rosa — Software Developer" />
 
             <div className="min-h-screen bg-[#09090b] text-zinc-200 font-sans selection:bg-zinc-700 selection:text-white">
-                
+
                 {/* Navbar with Reading Progress Indicator */}
                 <header className="border-b border-zinc-800/80 sticky top-0 bg-[#09090b]/85 backdrop-blur-md z-30 transition-all">
                     <div className="max-w-4xl mx-auto px-6 h-14 flex justify-between items-center">
@@ -82,14 +88,7 @@ export default function Welcome({ auth, projects = [] }) {
                             <a href="#projects" className="hover:text-zinc-100 transition-colors">Projects</a>
                             <a href="#skills" className="hover:text-zinc-100 transition-colors">Toolkit</a>
                             <a href="#contact" className="hover:text-zinc-100 transition-colors">Contact</a>
-                            <a 
-                                href="/resume.pdf" 
-                                target="_blank" 
-                                rel="noopener noreferrer" 
-                                className="text-zinc-200 hover:underline transition-all"
-                            >
-                                Resume ↗
-                            </a>
+                           
                             {auth?.user ? (
                                 <Link href="/dashboard" className="px-2.5 py-1 rounded bg-zinc-800 text-zinc-200 hover:bg-zinc-700 transition-colors">
                                     Dashboard
@@ -104,7 +103,7 @@ export default function Welcome({ auth, projects = [] }) {
 
                     {/* Subtle Top Scroll Progress Bar */}
                     <div className="w-full bg-transparent h-[1.5px]">
-                        <div 
+                        <div
                             className="h-[1.5px] bg-zinc-400/80 transition-all duration-150 ease-out"
                             style={{ width: `${scrollProgress}%` }}
                         />
@@ -112,14 +111,14 @@ export default function Welcome({ auth, projects = [] }) {
                 </header>
 
                 <main className="divide-y divide-zinc-800/60">
-                    
+
                     {/* Hero */}
                     <Hero />
 
                     {/* Featured Projects */}
                     <section id="projects" className="py-20 scroll-mt-14">
                         <div className="max-w-4xl mx-auto px-6">
-                            
+
                             <div className="reveal-item flex items-baseline justify-between mb-10">
                                 <h2 className="text-xs font-mono uppercase tracking-widest text-zinc-400">
                                     Selected Projects
@@ -136,8 +135,8 @@ export default function Welcome({ auth, projects = [] }) {
                             ) : (
                                 <div className="space-y-4">
                                     {projects.map((project, idx) => (
-                                        <div 
-                                            key={project.id} 
+                                        <div
+                                            key={project.id}
                                             style={{ transitionDelay: `${idx * 60}ms` }}
                                             className="reveal-item clean-card rounded-xl p-6 sm:p-7 flex flex-col md:flex-row gap-6 justify-between items-start group"
                                         >
@@ -148,15 +147,15 @@ export default function Welcome({ auth, projects = [] }) {
                                                         {project.title}
                                                     </h3>
                                                 </div>
-                                                
+
                                                 <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-xl">
                                                     {project.description}
                                                 </p>
 
                                                 <div className="flex flex-wrap gap-1.5 pt-2">
                                                     {(project.tech_stack || '').split(',').map((tech, tIdx) => (
-                                                        <span 
-                                                            key={tIdx} 
+                                                        <span
+                                                            key={tIdx}
                                                             className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800/90 text-zinc-400 group-hover:border-zinc-700 transition-colors"
                                                         >
                                                             {tech.trim()}
@@ -174,12 +173,12 @@ export default function Welcome({ auth, projects = [] }) {
                                                     })}
                                                     className="w-full md:w-44 h-28 rounded-lg overflow-hidden border border-zinc-800 bg-zinc-950 flex-shrink-0 group/img relative cursor-pointer"
                                                 >
-                                                    <img 
-                                                        src={`/storage/${project.image_path}`} 
-                                                        alt={project.title} 
+                                                    <img
+                                                        src={`/storage/${project.image_path}`}
+                                                        alt={project.title}
                                                         className="w-full h-full object-cover object-top opacity-75 group-hover/img:opacity-100 group-hover/img:scale-105 transition-all duration-500 ease-out"
                                                     />
-                                                    
+
                                                     {/* Shimmer Effect */}
                                                     <div className="shimmer-sweep" />
 
@@ -199,15 +198,15 @@ export default function Welcome({ auth, projects = [] }) {
                     {/* Toolkit Section */}
                     <section id="skills" className="py-20 scroll-mt-14">
                         <div className="max-w-4xl mx-auto px-6">
-                            
+
                             <h2 className="reveal-item text-xs font-mono uppercase tracking-widest text-zinc-400 mb-10">
                                 Technical Proficiencies
                             </h2>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                                 {skillGroups.map((group, idx) => (
-                                    <div 
-                                        key={idx} 
+                                    <div
+                                        key={idx}
                                         style={{ transitionDelay: `${idx * 60}ms` }}
                                         className="reveal-item space-y-3 p-4 rounded-xl border border-transparent hover:border-zinc-800/80 hover:bg-zinc-900/30 transition-all duration-300"
                                     >
@@ -229,42 +228,136 @@ export default function Welcome({ auth, projects = [] }) {
                     </section>
 
                     {/* Connect Section */}
-                    <section id="contact" className="py-20 scroll-mt-14">
-                        <div className="reveal-item max-w-4xl mx-auto px-6">
-                            
-                            <h2 className="text-xs font-mono uppercase tracking-widest text-zinc-400 mb-4">
-                                Connect
-                            </h2>
-                            
-                            <p className="text-zinc-300 text-sm max-w-md mb-8">
-                                Available for full-time engineering opportunities and technical collaborations.
-                            </p>
+                    <section id="contact" className="py-24 scroll-mt-14 relative">
+                        <div className="max-w-4xl mx-auto px-6">
 
-                            <div className="flex flex-wrap gap-4 text-xs font-mono">
-                                <a 
-                                    href="https://mail.google.com/mail/?view=cm&fs=1&to=jiandelarosa806@gmail.com" 
-                                    target="_blank" 
+                            {/* Header with Location & Availability Status */}
+                            <div className="reveal-item flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+                                <div>
+                                    <span className="text-xs font-mono uppercase tracking-widest text-zinc-400">
+                                        Get in Touch
+                                    </span>
+                                    <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-zinc-100 mt-2">
+                                        Let's discuss new opportunities.
+                                    </h2>
+                                </div>
+
+                                {/* Timezone / Availability Pill */}
+                                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-900/80 border border-zinc-800 text-[11px] font-mono text-zinc-400 w-fit">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                                    <span>PH (UTC+8) • Replies within 24h</span>
+                                </div>
+                            </div>
+
+                            {/* Interactive Contact Grid */}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                                {/* 1. Direct Email Card with Quick Copy */}
+                                <div className="reveal-item clean-card rounded-xl p-5 flex flex-col justify-between group">
+                                    <div>
+                                        <div className="flex items-center justify-between mb-3">
+                                            <span className="text-xs font-mono text-zinc-400">Primary Channel</span>
+                                            <button
+                                                onClick={handleCopyEmail}
+                                                className="text-[11px] font-mono px-2 py-1 rounded bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-colors"
+                                            >
+                                                {copied ? '✓ Copied!' : 'Copy Address'}
+                                            </button>
+                                        </div>
+                                        <h3 className="text-sm font-semibold text-zinc-100 group-hover:text-white transition-colors">
+                                            Direct Email
+                                        </h3>
+                                        <p className="text-xs font-mono text-zinc-400 mt-1">
+                                            jiandelarosa806@gmail.com
+                                        </p>
+                                    </div>
+
+                                    <a
+                                        href="https://mail.google.com/mail/?view=cm&fs=1&to=jiandelarosa806@gmail.com"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="mt-6 inline-flex items-center gap-1.5 text-xs font-medium text-zinc-300 group-hover:text-white transition-colors"
+                                    >
+                                        <span>Open in Webmail</span>
+                                        <span className="text-zinc-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+                                    </a>
+                                </div>
+
+                                {/* 2. LinkedIn Card */}
+                                <a
+                                    href="https://linkedin.com/in/jian-ross-dela-rosa-ab04bb351/"
+                                    target="_blank"
                                     rel="noopener noreferrer"
-                                    className="px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
+                                    className="reveal-item clean-card rounded-xl p-5 flex flex-col justify-between group cursor-pointer"
                                 >
-                                    Email ↗
+                                    <div>
+                                        <div className="flex items-center justify-between mb-3">
+                                            <span className="text-xs font-mono text-zinc-400">Professional Network</span>
+                                            <span className="text-xs text-zinc-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+                                        </div>
+                                        <h3 className="text-sm font-semibold text-zinc-100 group-hover:text-white transition-colors">
+                                            LinkedIn Profile
+                                        </h3>
+                                        <p className="text-xs text-zinc-400 mt-1">
+                                            Professional milestones, background & endorsements
+                                        </p>
+                                    </div>
+
+                                    <div className="mt-6 text-xs font-mono text-zinc-400 group-hover:text-zinc-300 transition-colors">
+                                        in/jian-ross-dela-rosa
+                                    </div>
                                 </a>
-                                <a 
-                                    href="https://github.com/jianrossdr" 
-                                    target="_blank" 
+
+                                {/* 3. GitHub Card */}
+                                <a
+                                    href="https://github.com/jianrossdr"
+                                    target="_blank"
                                     rel="noopener noreferrer"
-                                    className="px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
+                                    className="reveal-item clean-card rounded-xl p-5 flex flex-col justify-between group cursor-pointer"
                                 >
-                                    GitHub ↗
+                                    <div>
+                                        <div className="flex items-center justify-between mb-3">
+                                            <span className="text-xs font-mono text-zinc-400">Code Repositories</span>
+                                            <span className="text-xs text-zinc-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+                                        </div>
+                                        <h3 className="text-sm font-semibold text-zinc-100 group-hover:text-white transition-colors">
+                                            GitHub Profile
+                                        </h3>
+                                        <p className="text-xs text-zinc-400 mt-1">
+                                            Source code, system architectures & scripts
+                                        </p>
+                                    </div>
+
+                                    <div className="mt-6 text-xs font-mono text-zinc-400 group-hover:text-zinc-300 transition-colors">
+                                        github.com/jianrossdr
+                                    </div>
                                 </a>
-                                <a 
-                                    href="https://linkedin.com/in/jian-ross-dela-rosa-ab04bb351/" 
-                                    target="_blank" 
+
+                                {/* 4. Resume Document Card */}
+                                <a
+                                    href="/resume.pdf"
+                                    target="_blank"
                                     rel="noopener noreferrer"
-                                    className="px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
+                                    className="reveal-item clean-card rounded-xl p-5 flex flex-col justify-between group cursor-pointer"
                                 >
-                                    LinkedIn ↗
+                                    <div>
+                                        <div className="flex items-center justify-between mb-3">
+                                            <span className="text-xs font-mono text-zinc-400">Curriculum Vitae</span>
+                                            <span className="text-xs text-zinc-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+                                        </div>
+                                        <h3 className="text-sm font-semibold text-zinc-100 group-hover:text-white transition-colors">
+                                            Official Resume
+                                        </h3>
+                                        <p className="text-xs text-zinc-400 mt-1">
+                                            View or download print-ready PDF
+                                        </p>
+                                    </div>
+
+                                    <div className="mt-6 text-xs font-mono text-zinc-400 group-hover:text-zinc-300 transition-colors">
+                                        resume.pdf (PDF Preview)
+                                    </div>
                                 </a>
+
                             </div>
 
                         </div>
@@ -281,11 +374,11 @@ export default function Welcome({ auth, projects = [] }) {
 
             {/* Lightbox Modal with Smooth Scale-in */}
             {selectedImage && (
-                <div 
+                <div
                     className="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-4 sm:p-6 transition-all"
                     onClick={() => setSelectedImage(null)}
                 >
-                    <div 
+                    <div
                         className="relative max-w-4xl w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl animate-enter-1"
                         onClick={(e) => e.stopPropagation()}
                     >
@@ -294,7 +387,7 @@ export default function Welcome({ auth, projects = [] }) {
                                 <h3 className="text-xs font-medium text-zinc-200">{selectedImage.title}</h3>
                                 <p className="text-[10px] font-mono text-zinc-500">{selectedImage.tech}</p>
                             </div>
-                            <button 
+                            <button
                                 onClick={() => setSelectedImage(null)}
                                 className="text-xs font-mono text-zinc-400 hover:text-white px-2 py-1 transition-colors"
                             >
@@ -302,9 +395,9 @@ export default function Welcome({ auth, projects = [] }) {
                             </button>
                         </div>
                         <div className="p-2 bg-black flex justify-center max-h-[75vh] overflow-auto">
-                            <img 
-                                src={selectedImage.src} 
-                                alt={selectedImage.title} 
+                            <img
+                                src={selectedImage.src}
+                                alt={selectedImage.title}
                                 className="max-w-full max-h-[70vh] object-contain rounded"
                             />
                         </div>
