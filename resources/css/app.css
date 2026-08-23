@@ -6,26 +6,26 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Minimalist Dark Scrollbar */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
   background: #09090b;
 }
 ::-webkit-scrollbar-thumb {
   background: #27272a;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #3f3f46;
 }
 
-/* Entry Animation Keyframes */
+/* Keyframe Animations */
 @keyframes slideUpFade {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;
@@ -33,16 +33,37 @@ html {
   }
 }
 
-.animate-enter-1 { animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both; }
-.animate-enter-2 { animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both; }
-.animate-enter-3 { animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both; }
-.animate-enter-4 { animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both; }
+@keyframes pulseSubtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Animation Classes */
+.animate-enter-1 { animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both; }
+.animate-enter-2 { animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both; }
+.animate-enter-3 { animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both; }
+.animate-enter-4 { animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both; }
+
+.pulse-dot {
+  animation: pulseSubtle 2.2s ease-in-out infinite;
+}
 
 /* Scroll-reveal System */
 .reveal-item {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(22px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -51,15 +72,31 @@ html {
   transform: translateY(0);
 }
 
-/* Clean Card Surface */
+/* Interactive Clean Card with Hover Glow */
 .clean-card {
+  position: relative;
   background-color: #0c0c0e;
   border: 1px solid rgba(255, 255, 255, 0.07);
-  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
 }
 
 .clean-card:hover {
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.22);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px -10px rgba(0, 0, 0, 0.7);
+}
+
+/* Image Shimmer sweep on hover */
+.shimmer-sweep {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  transform: translateX(-100%);
+}
+
+.group\/img:hover .shimmer-sweep {
+  animation: shimmer 0.8s ease-in-out forwards;
 }

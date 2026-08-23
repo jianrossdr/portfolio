@@ -4,6 +4,21 @@ import Hero from '@/Components/Hero';
 
 export default function Welcome({ auth, projects = [] }) {
     const [selectedImage, setSelectedImage] = useState(null);
+    const [scrollProgress, setScrollProgress] = useState(0);
+
+    // Scroll reading progress listener
+    useEffect(() => {
+        const handleScroll = () => {
+            const totalScroll = document.documentElement.scrollTop;
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            if (windowHeight > 0) {
+                setScrollProgress((totalScroll / windowHeight) * 100);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     // Scroll reveal observer
     useEffect(() => {
@@ -56,8 +71,8 @@ export default function Welcome({ auth, projects = [] }) {
 
             <div className="min-h-screen bg-[#09090b] text-zinc-200 font-sans selection:bg-zinc-700 selection:text-white">
                 
-                {/* Navbar */}
-                <header className="border-b border-zinc-800/80 sticky top-0 bg-[#09090b]/85 backdrop-blur-md z-30">
+                {/* Navbar with Reading Progress Indicator */}
+                <header className="border-b border-zinc-800/80 sticky top-0 bg-[#09090b]/85 backdrop-blur-md z-30 transition-all">
                     <div className="max-w-4xl mx-auto px-6 h-14 flex justify-between items-center">
                         <a href="#" className="text-xs font-mono font-semibold tracking-wider text-zinc-300 hover:text-white transition-colors">
                             JIAN.DEV
@@ -71,7 +86,7 @@ export default function Welcome({ auth, projects = [] }) {
                                 href="/resume.pdf" 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
-                                className="text-zinc-200 hover:underline"
+                                className="text-zinc-200 hover:underline transition-all"
                             >
                                 Resume ↗
                             </a>
@@ -86,6 +101,14 @@ export default function Welcome({ auth, projects = [] }) {
                             )}
                         </nav>
                     </div>
+
+                    {/* Subtle Top Scroll Progress Bar */}
+                    <div className="w-full bg-transparent h-[1.5px]">
+                        <div 
+                            className="h-[1.5px] bg-zinc-400/80 transition-all duration-150 ease-out"
+                            style={{ width: `${scrollProgress}%` }}
+                        />
+                    </div>
                 </header>
 
                 <main className="divide-y divide-zinc-800/60">
@@ -93,7 +116,7 @@ export default function Welcome({ auth, projects = [] }) {
                     {/* Hero */}
                     <Hero />
 
-                    {/* Projects */}
+                    {/* Featured Projects */}
                     <section id="projects" className="py-20 scroll-mt-14">
                         <div className="max-w-4xl mx-auto px-6">
                             
@@ -108,7 +131,7 @@ export default function Welcome({ auth, projects = [] }) {
 
                             {(!projects || projects.length === 0) ? (
                                 <div className="reveal-item p-8 rounded-xl border border-zinc-800 text-center text-xs text-zinc-500">
-                                    No projects published yet. Add them via the dashboard.
+                                    No projects published yet. Add via dashboard.
                                 </div>
                             ) : (
                                 <div className="space-y-4">
@@ -154,9 +177,13 @@ export default function Welcome({ auth, projects = [] }) {
                                                     <img 
                                                         src={`/storage/${project.image_path}`} 
                                                         alt={project.title} 
-                                                        className="w-full h-full object-cover object-top opacity-75 group-hover/img:opacity-100 group-hover/img:scale-105 transition-all duration-300 ease-out"
+                                                        className="w-full h-full object-cover object-top opacity-75 group-hover/img:opacity-100 group-hover/img:scale-105 transition-all duration-500 ease-out"
                                                     />
-                                                    <span className="absolute inset-0 bg-black/50 opacity-0 group-hover/img:opacity-100 flex items-center justify-center text-[10px] font-mono text-zinc-200 transition-opacity duration-200">
+                                                    
+                                                    {/* Shimmer Effect */}
+                                                    <div className="shimmer-sweep" />
+
+                                                    <span className="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 flex items-center justify-center text-[10px] font-mono text-zinc-200 transition-opacity duration-200">
                                                         Preview ↗
                                                     </span>
                                                 </button>
@@ -169,7 +196,7 @@ export default function Welcome({ auth, projects = [] }) {
                         </div>
                     </section>
 
-                    {/* Toolkit */}
+                    {/* Toolkit Section */}
                     <section id="skills" className="py-20 scroll-mt-14">
                         <div className="max-w-4xl mx-auto px-6">
                             
@@ -182,7 +209,7 @@ export default function Welcome({ auth, projects = [] }) {
                                     <div 
                                         key={idx} 
                                         style={{ transitionDelay: `${idx * 60}ms` }}
-                                        className="reveal-item space-y-3"
+                                        className="reveal-item space-y-3 p-4 rounded-xl border border-transparent hover:border-zinc-800/80 hover:bg-zinc-900/30 transition-all duration-300"
                                     >
                                         <h3 className="text-xs font-semibold text-zinc-200 border-b border-zinc-800/80 pb-2">
                                             {group.category}
@@ -201,7 +228,7 @@ export default function Welcome({ auth, projects = [] }) {
                         </div>
                     </section>
 
-                    {/* Contact */}
+                    {/* Connect Section */}
                     <section id="contact" className="py-20 scroll-mt-14">
                         <div className="reveal-item max-w-4xl mx-auto px-6">
                             
@@ -218,7 +245,7 @@ export default function Welcome({ auth, projects = [] }) {
                                     href="https://mail.google.com/mail/?view=cm&fs=1&to=jiandelarosa806@gmail.com" 
                                     target="_blank" 
                                     rel="noopener noreferrer"
-                                    className="px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all duration-200 hover:-translate-y-0.5"
+                                    className="px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
                                 >
                                     Email ↗
                                 </a>
@@ -226,7 +253,7 @@ export default function Welcome({ auth, projects = [] }) {
                                     href="https://github.com/jianrossdr" 
                                     target="_blank" 
                                     rel="noopener noreferrer"
-                                    className="px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all duration-200 hover:-translate-y-0.5"
+                                    className="px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
                                 >
                                     GitHub ↗
                                 </a>
@@ -234,7 +261,7 @@ export default function Welcome({ auth, projects = [] }) {
                                     href="https://linkedin.com/in/jian-ross-dela-rosa-ab04bb351/" 
                                     target="_blank" 
                                     rel="noopener noreferrer"
-                                    className="px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all duration-200 hover:-translate-y-0.5"
+                                    className="px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
                                 >
                                     LinkedIn ↗
                                 </a>
@@ -252,14 +279,14 @@ export default function Welcome({ auth, projects = [] }) {
 
             </div>
 
-            {/* Lightbox Modal */}
+            {/* Lightbox Modal with Smooth Scale-in */}
             {selectedImage && (
                 <div 
-                    className="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-4 sm:p-6"
+                    className="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-4 sm:p-6 transition-all"
                     onClick={() => setSelectedImage(null)}
                 >
                     <div 
-                        className="relative max-w-4xl w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl"
+                        className="relative max-w-4xl w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl animate-enter-1"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="flex items-center justify-between px-5 py-3 border-b border-zinc-800 bg-zinc-950">
