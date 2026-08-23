@@ -11,21 +11,17 @@ export default function Hero() {
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-70" />
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                     </span>
-                    Available for software engineering roles
+                    Available for full-time software engineering roles
                 </div>
 
                 {/* Primary Heading */}
                 <h1 className="animate-enter-2 text-4xl sm:text-6xl font-medium tracking-tight text-zinc-100 leading-[1.15]">
                     Jian Ross Dela Rosa
                 </h1>
-                
-                <p className="animate-enter-2 mt-3 text-xl sm:text-2xl text-zinc-400 font-light tracking-tight">
-                    Software developer focused on systems analysis, full-stack applications, and performant tools.
-                </p>
 
-                {/* Short Bio */}
-                <p className="animate-enter-3 mt-6 text-base text-zinc-400 max-w-2xl leading-relaxed">
-                    Graduating Computer Science student building robust software solutions. Experienced in desktop architectures, database optimization, and user-centered web applications.
+                {/* Direct, Professional Bio */}
+                <p className="animate-enter-3 mt-4 text-base sm:text-lg text-zinc-400 max-w-2xl leading-relaxed">
+                    Software developer specializing in systems analysis, desktop application architectures, and performant web workflows.
                 </p>
 
                 {/* Direct CTA */}
