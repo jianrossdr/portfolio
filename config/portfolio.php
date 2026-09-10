@@ -9,7 +9,7 @@ return [
             'tech_stack' => 'Java, SQL, Swing/JavaFX, CRUD',
             'github_url' => null,
             'live_url' => null,
-            'image_path' => null,
+            'image_path' => 'projects/IfzKINQ3dDQA09aW5UcOhtfTGcAheI1NCEbkktzf.png',
         ],
         [
             'id' => 2,
@@ -18,7 +18,7 @@ return [
             'tech_stack' => 'Java, Data Structures (HashMaps, Queues), Algorithms',
             'github_url' => null,
             'live_url' => null,
-            'image_path' => null,
+            'image_path' => 'projects/hB1aBdfAHtwKZUnCVxikmHVTahDOKM036SzEoqvr.png',
         ],
         [
             'id' => 3,
@@ -27,7 +27,7 @@ return [
             'tech_stack' => 'C#, .NET, SQL, Desktop Architecture',
             'github_url' => null,
             'live_url' => null,
-            'image_path' => null,
+            'image_path' => 'projects/KUX8Qw6fmCkGCLRwJDebwnvILReoi4qdKHKfwR7h.png',
         ],
         [
             'id' => 4,
@@ -36,7 +36,7 @@ return [
             'tech_stack' => 'IoT, Embedded Systems, Real-Time Data, Hardware Telemetry',
             'github_url' => null,
             'live_url' => null,
-            'image_path' => null,
+            'image_path' => 'projects/pXdWwMGeqDnQtanMLWRg55rg05ceqIdzXxb4Q19E.png',
         ],
         [
             'id' => 5,
@@ -45,7 +45,7 @@ return [
             'tech_stack' => 'Figma, UI/UX Design, Prototyping, Wireframing',
             'github_url' => null,
             'live_url' => null,
-            'image_path' => null,
+            'image_path' => 'projects/C3EGkiZkFbJWpMjAhsEA0vHGZAJ7m7kAopW7dX87.png',
         ],
         [
             'id' => 6,
@@ -54,7 +54,7 @@ return [
             'tech_stack' => '3ds Max, 3D Modeling, Lighting, Texturing',
             'github_url' => null,
             'live_url' => null,
-            'image_path' => null,
+            'image_path' => 'projects/KSJ0Ijn1ojRHp7HF8sX2v5lmUNsVoWNVNXWYMKjO.png',
         ],
         [
             'id' => 7,
@@ -63,7 +63,7 @@ return [
             'tech_stack' => 'Unreal Engine, Game Logic, 3D Level Design, Physics',
             'github_url' => null,
             'live_url' => null,
-            'image_path' => null,
+            'image_path' => 'projects/zqXlRIkccJbisvstbQodu0d9H8HPUcXIorNQvrUR.png',
         ],
     ],
 ];
