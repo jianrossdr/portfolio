@@ -2,13 +2,12 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
-use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
-        'projects' => Project::latest()->get(),
+        'projects' => config('portfolio.projects'),
     ]);
 });
 

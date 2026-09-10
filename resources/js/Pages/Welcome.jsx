@@ -1,8 +1,8 @@
-import { Head, Link } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
 import { useState, useEffect } from 'react';
 import Hero from '@/Components/Hero';
 
-export default function Welcome({ auth, projects = [] }) {
+export default function Welcome({ projects = [] }) {
     const [selectedImage, setSelectedImage] = useState(null);
     const [scrollProgress, setScrollProgress] = useState(0);
     const [copied, setCopied] = useState(false);
@@ -88,16 +88,6 @@ export default function Welcome({ auth, projects = [] }) {
                             <a href="#projects" className="hover:text-zinc-100 transition-colors">Projects</a>
                             <a href="#skills" className="hover:text-zinc-100 transition-colors">Toolkit</a>
                             <a href="#contact" className="hover:text-zinc-100 transition-colors">Contact</a>
-                           
-                            {auth?.user ? (
-                                <Link href="/dashboard" className="px-2.5 py-1 rounded bg-zinc-800 text-zinc-200 hover:bg-zinc-700 transition-colors">
-                                    Dashboard
-                                </Link>
-                            ) : (
-                                <Link href="/login" className="text-zinc-500 hover:text-zinc-300 transition-colors">
-                                    Admin
-                                </Link>
-                            )}
                         </nav>
                     </div>
 
