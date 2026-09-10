@@ -21,4 +21,11 @@ $app->singleton('events', static fn ($app) => new \Illuminate\Events\Dispatcher(
 $app->register(\Illuminate\Events\EventServiceProvider::class);
 $app->register(\Illuminate\View\ViewServiceProvider::class);
 
-$app->handleRequest(Request::capture());
+try {
+    $app->handleRequest(Request::capture());
+} catch (\Throwable $exception) {
+    http_response_code(500);
+    header('Content-Type: text/plain; charset=utf-8');
+    echo get_class($exception).': '.$exception->getMessage();
+    exit;
+}
