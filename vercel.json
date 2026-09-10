@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
   "framework": null,
   "buildCommand": "npm run build",
   "outputDirectory": "public",
@@ -18,10 +19,18 @@
       "maxDuration": 60
     }
   },
-  "rewrites": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/api/index.php"
+      "src": "/build/(.*)",
+      "dest": "/public/build/$1"
+    },
+    {
+      "src": "/(favicon\\.ico|robots\\.txt|resume\\.pdf)",
+      "dest": "/public/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.php"
     }
   ]
 }
