@@ -13,6 +13,15 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 // Register the Composer autoloader...
 require __DIR__.'/../vendor/autoload.php';
 
+// Vercel's deployment filesystem is read-only; Laravel's package manifest needs a writable cache.
+$runtimeCachePath = '/tmp/laravel-cache';
+if (! is_dir($runtimeCachePath) && ! mkdir($runtimeCachePath, 0755, true) && ! is_dir($runtimeCachePath)) {
+    throw new RuntimeException("Unable to create Laravel runtime cache directory: {$runtimeCachePath}");
+}
+
+putenv("APP_PACKAGES_CACHE={$runtimeCachePath}/packages.php");
+putenv("APP_SERVICES_CACHE={$runtimeCachePath}/services.php");
+
 // Bootstrap Laravel and handle the request...
 /** @var Application $app */
 $app = require_once __DIR__.'/../bootstrap/app.php';
