@@ -17,6 +17,7 @@ require __DIR__.'/../vendor/autoload.php';
 /** @var Application $app */
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
+$app->singleton('events', static fn ($app) => new \Illuminate\Events\Dispatcher($app));
 $app->register(\Illuminate\Events\EventServiceProvider::class);
 $app->register(\Illuminate\View\ViewServiceProvider::class);
 
