@@ -157,14 +157,14 @@ export default function Welcome({ projects = [] }) {
                                             {project.image_path && (
                                                 <button
                                                     onClick={() => setSelectedImage({
-                                                        src: `/storage/${project.image_path}`,
+                                                        src: `/project-images/${project.image_path}`,
                                                         title: project.title,
                                                         tech: project.tech_stack
                                                     })}
                                                     className="w-full md:w-44 h-28 rounded-lg overflow-hidden border border-zinc-800 bg-zinc-950 flex-shrink-0 group/img relative cursor-pointer"
                                                 >
                                                     <img
-                                                        src={`/storage/${project.image_path}`}
+                                                        src={`/project-images/${project.image_path}`}
                                                         alt={project.title}
                                                         className="w-full h-full object-cover object-top opacity-75 group-hover/img:opacity-100 group-hover/img:scale-105 transition-all duration-500 ease-out"
                                                     />

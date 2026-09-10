@@ -27,6 +27,10 @@
       "dest": "/public/build/$1"
     },
     {
+      "src": "/project-images/(.*)",
+      "dest": "/public/project-images/$1"
+    },
+    {
       "src": "/(favicon\\.ico|robots\\.txt|resume\\.pdf)",
       "dest": "/public/$1"
     },
