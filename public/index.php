@@ -17,4 +17,7 @@ require __DIR__.'/../vendor/autoload.php';
 /** @var Application $app */
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
+$app->register(\Illuminate\View\ViewServiceProvider::class);
+$app->register(\Inertia\ServiceProvider::class);
+
 $app->handleRequest(Request::capture());
