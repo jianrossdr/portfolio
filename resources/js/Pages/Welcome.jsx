@@ -59,7 +59,7 @@ export default function Welcome({ projects = [] }) {
         },
         {
             category: 'Frameworks & Web',
-            items: ['Laravel', 'React', 'Inertia.js', 'Tailwind CSS', 'REST APIs']
+            items: ['HTML', 'Laravel', 'React', 'Inertia.js', 'Tailwind CSS', 'REST APIs']
         },
         {
             category: 'Systems & Data',
