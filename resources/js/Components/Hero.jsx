@@ -15,7 +15,7 @@ export default function Hero() {
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 pulse-dot" />
                     </span>
-                    Available for full-time software engineering roles
+                    Full-Stack Software Developer | Available for Full-Time Opportunities
                 </div>
 
                 {/* 2. Main Name Heading */}
