@@ -25,7 +25,7 @@ export default function Hero() {
 
                 {/* 3. Refined Bio */}
                 <p className="animate-enter-3 mt-4 text-base sm:text-lg text-zinc-400 max-w-2xl leading-relaxed">
-                    Computer Science graduate and software developer specializing in systems analysis, desktop application architectures, and performant web workflows.
+                    Full-stack software developer building reliable, user-focused web and desktop applications.
                 </p>
 
                 {/* 4. Interactive Action Buttons */}
