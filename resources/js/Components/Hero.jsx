@@ -22,9 +22,9 @@ export default function Hero() {
                     <img
                         src="/profile.jpg"
                         alt="Jian Ross Dela Rosa"
-                        width="144"
-                        height="144"
-                        className="animate-enter-2 h-32 w-32 rounded-full border-2 border-zinc-700 object-cover object-top shadow-xl shadow-black/30 sm:h-36 sm:w-36"
+                        width="192"
+                        height="192"
+                        className="animate-enter-2 h-40 w-40 rounded-full border-2 border-zinc-700 object-cover object-top shadow-xl shadow-black/30 sm:h-48 sm:w-48"
                     />
 
                     <div>
