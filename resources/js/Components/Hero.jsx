@@ -8,6 +8,14 @@ export default function Hero() {
             <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[250px] bg-zinc-800/20 blur-[130px] rounded-full pointer-events-none -z-10" />
 
             <div className="max-w-4xl mx-auto px-6">
+
+                <img
+                    src="/profile.jpg"
+                    alt="Jian Ross Dela Rosa"
+                    width="144"
+                    height="144"
+                    className="animate-enter-1 mb-8 h-32 w-32 rounded-full border-2 border-zinc-700 object-cover object-top shadow-xl shadow-black/30 sm:h-36 sm:w-36"
+                />
                 
                 {/* 1. Status Indicator with Interactive Hover */}
                 <div className="animate-enter-1 inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-zinc-800/90 bg-zinc-900/60 text-zinc-300 text-xs font-mono mb-8 backdrop-blur-md transition-all duration-300 hover:border-zinc-700 hover:scale-[1.02]">
