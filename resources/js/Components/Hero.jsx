@@ -49,6 +49,15 @@ export default function Hero() {
                                 <span>Get in Touch</span>
                                 <span className="text-zinc-500 group-hover:text-zinc-300 transition-colors">↗</span>
                             </a>
+                            <a
+                                href="/resume.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg border border-zinc-800 hover:border-zinc-700 text-zinc-400 hover:text-zinc-200 text-xs font-medium transition-colors"
+                            >
+                                <span>View Resume</span>
+                                <span>↗</span>
+                            </a>
                         </div>
                     </div>
                 </div>

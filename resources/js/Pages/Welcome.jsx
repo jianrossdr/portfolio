@@ -323,31 +323,6 @@ export default function Welcome({ projects = [] }) {
                                     </div>
                                 </a>
 
-                                {/* 4. Resume Document Card */}
-                                <a
-                                    href="/resume.pdf"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="reveal-item clean-card rounded-xl p-5 flex flex-col justify-between group cursor-pointer"
-                                >
-                                    <div>
-                                        <div className="flex items-center justify-between mb-3">
-                                            <span className="text-xs font-mono text-zinc-400">Curriculum Vitae</span>
-                                            <span className="text-xs text-zinc-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
-                                        </div>
-                                        <h3 className="text-sm font-semibold text-zinc-100 group-hover:text-white transition-colors">
-                                            Official Resume
-                                        </h3>
-                                        <p className="text-xs text-zinc-400 mt-1">
-                                            View or download print-ready PDF
-                                        </p>
-                                    </div>
-
-                                    <div className="mt-6 text-xs font-mono text-zinc-400 group-hover:text-zinc-300 transition-colors">
-                                        resume.pdf (PDF Preview)
-                                    </div>
-                                </a>
-
                             </div>
 
                         </div>
