@@ -31,7 +31,7 @@
       "dest": "/public/project-images/$1"
     },
     {
-      "src": "/(favicon\\.ico|robots\\.txt|resume\\.pdf)",
+      "src": "/(favicon\\.ico|robots\\.txt|resume\\.pdf|profile\\.jpg)",
       "dest": "/public/$1"
     },
     {
