@@ -8,7 +8,7 @@ export default function Welcome({ projects = [] }) {
     const [copied, setCopied] = useState(false);
 
     const handleCopyEmail = () => {
-        navigator.clipboard.writeText('jiandelarosa806@gmail.com');
+        navigator.clipboard.writeText('jianrossd@gmail.com');
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
     };
@@ -258,12 +258,12 @@ export default function Welcome({ projects = [] }) {
                                             Direct Email
                                         </h3>
                                         <p className="text-xs font-mono text-zinc-400 mt-1">
-                                            jiandelarosa806@gmail.com
+                                            jianrossd@gmail.com
                                         </p>
                                     </div>
 
                                     <a
-                                        href="https://mail.google.com/mail/?view=cm&fs=1&to=jiandelarosa806@gmail.com"
+                                        href="https://mail.google.com/mail/?view=cm&fs=1&to=jianrossd@gmail.com"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="mt-6 inline-flex items-center gap-1.5 text-xs font-medium text-zinc-300 group-hover:text-white transition-colors"

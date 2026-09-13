@@ -41,7 +41,7 @@ export default function Hero() {
                         {/* 4. Interactive Action Buttons */}
                         <div className="animate-enter-4 mt-8 flex flex-wrap items-center gap-4">
                             <a
-                                href="https://mail.google.com/mail/?view=cm&fs=1&to=jiandelarosa806@gmail.com"
+                                href="https://mail.google.com/mail/?view=cm&fs=1&to=jianrossd@gmail.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="group inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 hover:border-zinc-700 text-xs font-medium transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
